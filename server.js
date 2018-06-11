@@ -71,7 +71,7 @@ router.get('/doctor/session/list', function(req,res){
 router.post('/book/add',function(req,res){
     let req_body = req.body;
     //let query = "INSERT INTO appointment(doctor_session,name,phone,email) VALUES ('"+req_body.session_id+"','"+req_body.name+"','"+req_body.phone+"','"+req_body.email+"')";
-    let query = "INSERT INTO appointment(doctor_session,name,phone,email) VALUES (?,?,?,?)"
+    let query = "INSERT INTO appointment(doctor_session,name,phone,email) VALUES (?,?,?,?)";
     db.query(query,[req_body.session_id,req_body.name,req_body.phone,req_body.email],(error,result,field)=>{
         if(error) throw error;
         res.send(result);
